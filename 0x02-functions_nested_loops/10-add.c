@@ -6,7 +6,8 @@
  *Return: Always 0.
  */
 
-int add (int n, int c)
+int add(int n, int c)
+
 {
 	return (n + c);
 }
