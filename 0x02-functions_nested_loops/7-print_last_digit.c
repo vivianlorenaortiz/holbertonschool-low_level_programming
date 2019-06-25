@@ -6,22 +6,12 @@
  * Return: Always 0.
  */
 int print_last_digit(int d)
-
 {
-	int m;
-	char x;
-
-	if (d >= '0')
+	d = d % 10;
+	if (d < 0)
 	{
-		m = (d % 10);
-		x =  '0' + m;
-		_putchar (x);
+		d = d * (-1);
 	}
-	else
-	{
-		m = (d % 10) * (-1);
-		x = '0' + m;
-		_putchar (x);
-	}
-	return (m);
+	_putchar('0' + d);
+	return (d);
 }
