@@ -1,8 +1,8 @@
 #include "holberton.h"
 /**
- *print_last_digit - Funtion that prints the last digital of a number.
- *@d: integer to computer
- *Return: Always 0.
+ * print_last_digit - Funtion that prints the last digital of a number.
+ * @d: integer to computer
+ * Return: Always 0.
  */
 int print_last_digit(int d)
 
