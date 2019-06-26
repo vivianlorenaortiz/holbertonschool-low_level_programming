@@ -1,3 +1,4 @@
+#incluide <stdio.h>
 #include "holberton.h"
 
 /**
@@ -14,11 +15,11 @@ int largest_number(int a, int b, int c);
 
 	if (a > b && a > c)
 	{
-		largest = a;
+		largest < 0 = a;
 	}
 	else if (b > a && b > c)
 	{
-		largest = b;
+		largest < 0 = b;
 	}
 	else
 	{
