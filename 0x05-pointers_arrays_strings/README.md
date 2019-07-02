@@ -1,0 +1,1 @@
+# This project is of Pointers, arrays and strings.
