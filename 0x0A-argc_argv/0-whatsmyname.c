@@ -1,4 +1,4 @@
-#include <stdlib.h>
+#include <stdio.h>
 
 /**
  * main - entry point
@@ -9,7 +9,6 @@
 
 int main(int argc, char *argv[])
 {
-	(void)argc;
 	if (argc == 1)
 	{
 		printf("%s\n", argv[0]);
