@@ -1,31 +1,28 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <ctype.h>
 /**
  * main - Entry point
  *@argc: number
  *@argv: string
- * Return: Always 0 (Success)
+ * Return: Always or 1
  */
 int main(int argc, char *argv[])
 {
-	int i;
-	int sum = 0;
+	int i, s, sum = 0;
 
 	for (i = 1; i < argc; i++)
 	{
-		if (atoi(argv[i]) || *argv[i] == '0')
+		for (s = 0; argv[i][s]; s++)
 		{
-			sum += atoi(argv[i]);
+			if (isdigit(argv[i][s]) == 0)
+			{
+				printf("Error\n");
+				return (1);
+			}
 		}
-		else
-		{
-			printf("ERROR\n");
-			return (1);
-		}
+		sum += atoi(argv[i]);
 	}
-
-		printf("%d\n", sum);
-
-		return (0);
-
+	printf("%d\n", sum);
+	return (0);
 }
