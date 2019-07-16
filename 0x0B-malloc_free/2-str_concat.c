@@ -2,10 +2,10 @@
 #include <stdlib.h>
 #include <string.h>
 /**
- * _strlen - returns the length of a string.
- * @s: string
- * Return: str
- */
+* _strlen - returns the length of a string.
+* @s: string
+* Return: str
+*/
 int _strlen(char *s)
 {
 	int len = 0;
@@ -17,12 +17,12 @@ int _strlen(char *s)
 	}
 	return (len);
 }
-
- /**
- **str_concat -
- *@str: char
- *Return: String
- */
+/**
+* *str_concat - Concat funtion
+*@s1: Is a pointer
+*@s2: Is a pointer
+*Return: String
+*/
 char *str_concat(char *s1, char *s2)
 {
 	char *s;
@@ -36,9 +36,11 @@ char *str_concat(char *s1, char *s2)
 
 	s = malloc(_strlen(s1) + _strlen(s2) + 1);
 
-	for (i = 0; s1[i] != '\0'; i++)
+	i = 0;
+	while (s1[i] != '\0')
 	{
 		s[i] = s1[i];
+		i++;
 	}
 
 	j = 0;
