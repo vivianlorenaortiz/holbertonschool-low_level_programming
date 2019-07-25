@@ -1,6 +1,5 @@
 #include "3-calc.h"
 #include <stdlib.h>
-#include <string.h>
 /**
  * get_op_func - call a pointer with print function and send value int
  * @s: operator with string
@@ -20,7 +19,7 @@ int (*get_op_func(char *s))(int, int)
 
 	while (ops[i].op != NULL)
 	{
-		if (strcmp(ops[i].op, s) == 0)
+		if (ops[i].op[0] == s[0])
 			return (ops[i].f);
 		i++;
 	}

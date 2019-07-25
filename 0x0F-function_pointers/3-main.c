@@ -10,31 +10,29 @@
  */
 int main(int argc, char *argv[])
 {
-		int i;
-		int a;
+	int i;
+	int a;
+	int b = argv[2][0];
 
-		if (argc != 4)
-		{
-			printf("Error\n");
-			exit(98);
-		}
-		if ((strcmp(argv[2], "+") != 0) && (strcmp(argv[2], "-") != 0)
-	    && (strcmp(argv[2], "*") != 0) && (strcmp(argv[2], "/") != 0)
-	    && (strcmp(argv[2], "%") != 0))
+	if (argc != 4)
+	{
+		printf("Error\n");
+		exit(98);
+	}
+	if (b != '+' && b != '-' && b != '*' && b != '/' && b != '%')
 	{
 		printf("Error\n");
 		exit(99);
 	}
 	i = atoi(argv[1]);
 	a = atoi(argv[3]);
-	if (((strcmp(argv[2], "/") == 0) && i  == 0) ||
-	    ((strcmp(argv[2], "%") == 0) && i  == 0))
+	if (argv[2][1] != '\0')
 	{
 		printf("Error\n");
-		exit(100);
+		exit(99);
 	}
 
-	printf("%d\n", get_op_func(argv[2])(i, a));
+	printf("%d\n", (get_op_func(argv[2]))(i, a));
 
 	return (0);
 }
