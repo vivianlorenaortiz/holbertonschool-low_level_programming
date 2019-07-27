@@ -8,7 +8,7 @@
  */
 void print_c(va_list c)
 {
-	printf("%c, ", va_arg(c, int));
+	printf("%c", va_arg(c, int));
 }
 /**
  *print_i - print integer
@@ -17,7 +17,7 @@ void print_c(va_list c)
  */
 void print_i(va_list i)
 {
-	printf("%d, ", va_arg(i, int));
+	printf("%d", va_arg(i, int));
 }
 /**
  *print_f - print float
@@ -43,6 +43,9 @@ void print_s(va_list s)
 }
 void print_all(const char * const format, ...)
 {
+	va_list valist;
+	int i, a;
+	char *s = ", ";
 	print_t valu[] = {
 		{"c", print_c},
 		{"s", print_s},
@@ -50,20 +53,24 @@ void print_all(const char * const format, ...)
 		{"f", print_f},
 		{NULL, NULL}
 	};
-	va_list valist;
-	unsigned int i, a;
 	va_start(valist, format);
 	i = 0;
-	while (format[i])
+	while (format[i] != '\0')
 	{
 
 
 		a = 0;
-		while (valu[a].t != NULL)
+		while (valu[a].t)
 		{
-			if(*(valu[a].t) == format[i])
+			if(format[i] == valu[a].t[0])
+			{
 				valu[a].f(valist);
+				if (i < 3)
+				printf("%s", s);
+			      
+			}
 			a++;
+
 		}
 		i++;
 	}
