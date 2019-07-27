@@ -10,7 +10,7 @@
  * @type: The format to print
  * @f: The print function to use
  */
-typedef struct print_functions
+typedef struct print
 {
 	char *p;
 	void (*f)(va_list);
