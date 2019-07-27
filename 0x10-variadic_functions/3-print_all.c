@@ -36,21 +36,21 @@ void print_f(va_list f)
 void print_s(va_list s)
 {
 	char *string = va_arg(s, char *);
+
 	if (string == NULL)
 		printf("(nill)");
-	else
-		printf("%s", string);
+	printf("%s", string);
 }
 void print_all(const char * const format, ...)
 {
 	va_list valist;
 	int i, a;
-	char *s = ", ";
+	char *s = "";
 	print_t valu[] = {
 		{"c", print_c},
-		{"s", print_s},
 		{"i", print_i},
 		{"f", print_f},
+		{"s", print_s},
 		{NULL, NULL}
 	};
 	va_start(valist, format);
@@ -60,14 +60,14 @@ void print_all(const char * const format, ...)
 
 
 		a = 0;
-		while (valu[a].t)
+		while (valu[a].t != NULL)
 		{
-			if(format[i] == valu[a].t[0])
+			if (format[i] == valu[a].t[0])
 			{
-				valu[a].f(valist);
-				if (i < 3)
 				printf("%s", s);
-			      
+				valu[a].f(valist);
+				s = ", ";
+				break;
 			}
 			a++;
 
