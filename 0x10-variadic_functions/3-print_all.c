@@ -41,11 +41,15 @@ void print_s(va_list s)
 		printf("(nill)");
 	printf("%s", string);
 }
+/**
+ *print_all - prints anything.
+ *@format: list of arguments
+ *Return: void
+ *
+ */
 void print_all(const char * const format, ...)
 {
-	va_list valist;
 	int i, a;
-	char *s = "";
 	print_t valu[] = {
 		{"c", print_c},
 		{"i", print_i},
@@ -53,9 +57,12 @@ void print_all(const char * const format, ...)
 		{"s", print_s},
 		{NULL, NULL}
 	};
+	va_list valist;
+	char *s = "";
+
 	va_start(valist, format);
 	i = 0;
-	while (format[i] != '\0')
+	while (format != NULL && format[i])
 	{
 
 
