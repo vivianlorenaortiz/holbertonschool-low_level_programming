@@ -2,38 +2,38 @@
 #include <stdarg.h>
 #include "variadic_functions.h"
 /**
- *print_c - print char
+ *character - print char
  *@c: char
  *Return: ntg
  */
-void print_c(va_list c)
+void character(va_list c)
 {
 	printf("%c", va_arg(c, int));
 }
 /**
- *print_i - print integer
+ *integer - print integer
  *@i: integer
  *Return: ntg
  */
-void print_i(va_list i)
+void integer(va_list i)
 {
 	printf("%d", va_arg(i, int));
 }
 /**
- *print_f - print float
+ *floater - print float
  *@f: float
  *Return: ntg
  */
-void print_f(va_list f)
+void floater(va_list f)
 {
 	printf("%f", va_arg(f, double));
 }
 /**
- *print_s - print string
+ *str - print string
  *@s: string
  *Return:ntg
  */
-void print_s(va_list s)
+void str(va_list s)
 {
 	char *string = va_arg(s, char *);
 
@@ -51,10 +51,10 @@ void print_all(const char * const format, ...)
 {
 	int i, a;
 	print_t valu[] = {
-		{"c", print_c},
-		{"i", print_i},
-		{"f", print_f},
-		{"s", print_s},
+		{"c", character},
+		{"i", integer},
+		{"f", floater},
+		{"s", str},
 		{NULL, NULL}
 	};
 	va_list valist;
@@ -67,9 +67,9 @@ void print_all(const char * const format, ...)
 
 
 		a = 0;
-		while (valu[a].t != NULL)
+		while (valu[a].p != NULL)
 		{
-			if (format[i] == valu[a].t[0])
+			if (format[i] == valu[a].p[0])
 			{
 				printf("%s", s);
 				valu[a].f(valist);
