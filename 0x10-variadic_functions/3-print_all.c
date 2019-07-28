@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdarg.h>
 #include "variadic_functions.h"
+
 /**
  *print_c - print char
  *@c: char
@@ -21,7 +22,7 @@ void print_s(va_list s)
 
 	if (string == NULL)
 	{
-		printf("(nill)");
+		printf("(nil)");
 		return;
 	}
 	printf("%s", string);
