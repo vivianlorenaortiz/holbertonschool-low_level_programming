@@ -11,6 +11,23 @@ void print_c(va_list c)
 	printf("%c", va_arg(c, int));
 }
 /**
+ *print_s - print string
+ *@s: string
+ *Return:ntg
+ */
+void print_s(va_list s)
+{
+	char *string = va_arg(s, char *);
+
+	if (string == NULL)
+	{
+		printf("(nill)");
+		return;
+	}
+	printf("%s", string);
+}
+
+/**
  *print_i - print integer
  *@i: integer
  *Return: ntg
@@ -29,22 +46,6 @@ void print_f(va_list f)
 	printf("%f", va_arg(f, double));
 }
 /**
- *print_s - print string
- *@s: string
- *Return:ntg
- */
-void print_s(va_list s)
-{
-	char *string = va_arg(s, char *);
-
-	if (string == NULL)
-	{
-	printf("%s", string);
-	return;
-	}
-	printf("(nill)");
-}
-/**
  *print_all - prints anything.
  *@format: list of arguments
  *Return: void
@@ -53,36 +54,35 @@ void print_s(va_list s)
 
 void print_all(const char * const format, ...)
 {
-	unsigned int i, a;
 	print_t valu[] = {
 		{"c", print_c},
+		{"s", print_s},
 		{"i", print_i},
 		{"f", print_f},
-		{"s", print_s},
 		{NULL, NULL}
 	};
 	va_list valist;
+	int i, a;
 	char *s = "";
 
 	va_start(valist, format);
 	i = 0;
-	while (format && format[i])
+	while (format != NULL && format[i])
 	{
 		a = 0;
-		while (valu[a].p != NULL)
+		while (a < 4)
 		{
 			if (valu[a].p[0] == format[i])
 			{
 				printf("%s", s);
-				valu[a].f(valist);
+				(valu[a].f(valist));
 				s = ", ";
 				break;
 			}
 			a++;
-
 		}
 		i++;
 	}
-	va_end(valist);
 	printf("\n");
+	va_end(valist);
 }
