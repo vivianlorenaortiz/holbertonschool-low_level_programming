@@ -38,8 +38,11 @@ void print_s(va_list s)
 	char *string = va_arg(s, char *);
 
 	if (string == NULL)
-		string = "(nill)";
+	{
 	printf("%s", string);
+	return;
+	}
+	printf("(nill)");
 }
 /**
  *print_all - prints anything.
