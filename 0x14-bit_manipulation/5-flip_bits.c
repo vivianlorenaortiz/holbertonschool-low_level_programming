@@ -7,16 +7,16 @@
  */
 unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
-	unsigned int mask;
+	unsigned int mask = 1;
 	unsigned int count = 0;
 
-	mask =	n ^ m;
+	n ^= m;
 
-	while (mask != 0)
+	while (n)
 	{
-		if (mask & 1)
+		if (n & mask)
 			count++;
-		mask = mask >> 1;
+		n >>= 1;
 	}
 	return (count);
 }
