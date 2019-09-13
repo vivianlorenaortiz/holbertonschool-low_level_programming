@@ -1,9 +1,9 @@
 #include "lists.h"
 
 /**
- *
- *
- *
+ *sum_dlistint - Function that returns the sum of all the data (n).
+ *@head: Pointer to the first node in the list.
+ *Return: Sum of all the data (n).
  *
  */
 int sum_dlistint(dlistint_t *head)
