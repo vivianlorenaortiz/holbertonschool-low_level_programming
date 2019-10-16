@@ -1,7 +1,7 @@
 #include "hash_tables.h"
 
 /**
- * hash_table_get
+ * hash_table_get - function
  * @ht: table
  * @key: key
  *
