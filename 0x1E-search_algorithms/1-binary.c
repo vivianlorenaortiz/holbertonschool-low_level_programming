@@ -4,7 +4,7 @@
  *@array: is a pointer to the first element of the aray to search.
  *@size: is the number of elements in array.
  *@value: return the index where value is located
- *Return: value
+ *Return: value of the fucntion. 
  */
 
 int binary_search(int *array, size_t size, int value)
